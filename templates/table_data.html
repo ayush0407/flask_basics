@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Ratings</title>
+</head>
+<body>
+<h2>
+    This collection belongs to {{ name }}
+</h2>
+
+<table>
+    <tr>
+        <th>
+            movie
+        </th>
+        <th>
+            rating
+        </th>
+        <th>
+            comments
+        </th>
+    </tr>
+    {%  for m,r in movies.items()  %}
+    <tr>
+        <td>
+            {{ m }}
+        </td>
+        <td>
+            {{ r }}
+        </td>
+        {% if r>=4  %}
+        <td>
+            Great
+        </td>
+        {%  elif r<4 %}
+        <td>
+            Good
+        </td>
+        {%  endif %}
+
+    </tr>
+    {% endfor %}
+
+</table>
+<ol type="1">
+    <li>
+        default value: {{ name|default('value not defined',true) }}<br>
+    </li>
+    <li>
+        Capital case : {{ movies|length }}<br>
+    </li>
+    <li>
+        First Item:{{ movies|first }}<br>
+
+    </li>
+
+
+
+</ol>
+</body>
+</html>
